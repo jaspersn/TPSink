@@ -1,4 +1,6 @@
 public class Main {
+
+    protected static final String APP_NAME = "TPSink";
     public static void main(String[] args) {
         System.out.println("Hello new project");
 
