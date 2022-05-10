@@ -23,7 +23,7 @@ public class About {
     /**
      * An array of group member names.
      */
-    protected static final String[] MEMBERS = {"Xavier Hines", "Jasper Newkirk"};
+    protected static final String[] MEMBERS = {"Xavier Hines", "Jasper Newkirk", "Jeremy Tirador"};
 
     protected static final String WINDOW_NAME = "About";
 
