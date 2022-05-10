@@ -9,15 +9,19 @@ public class MainGUI extends JFrame implements ActionListener  {
 
     public MainGUI() {
         JButton button = new JButton(About.WINDOW_NAME);
+        JButton LoginButton = new JButton(UserLogin.getWindowName());
+        //action listener lambda implementation
         button.addActionListener(e -> new AboutGUI());
+        LoginButton.addActionListener(e -> new UserLoginGUI());
 
-        panel.setBorder(BorderFactory.createEmptyBorder(30,30,10,30));
-        panel.setLayout(new GridLayout(0, 1));
-        panel.add(button);
+        buttonPanel.add(button);
+        buttonPanel.add(LoginButton);
 
-        add(panel, BorderLayout.CENTER);
+        panel.add(buttonPanel, BorderLayout.LINE_END);
+
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setTitle(Main.APP_NAME);
+        setTitle(About.GROUP_NAME);
+        add(panel);
         pack();
         setVisible(true);
     }

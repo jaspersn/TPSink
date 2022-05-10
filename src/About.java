@@ -13,6 +13,14 @@ public class About {
      */
     protected static final String VERSION = "0.1.0";
     /**
+     * The group name.
+     */
+    protected static final String GROUP_NAME = "TPSink";
+    /**
+     * An array of about info headings
+     */
+    protected static final String[] HEADINGS = {"This app is registered to: " + UserLogin.getUserName(), "This app is provided by: " + GROUP_NAME};
+    /**
      * An array of group member names.
      */
     protected static final String[] MEMBERS = {"Xavier Hines", "Jasper Newkirk", "Jeremy Tirador", "Phuoc Le"};

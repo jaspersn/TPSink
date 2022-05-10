@@ -3,7 +3,8 @@ import java.awt.*;
 
 public class AboutGUI extends JFrame {
 
-    private final JPanel panel = new JPanel();
+    private final JPanel panel = new JPanel(new BorderLayout());
+
 
     public AboutGUI() {
         panel.setBorder(BorderFactory.createEmptyBorder(30,30,10,30));
