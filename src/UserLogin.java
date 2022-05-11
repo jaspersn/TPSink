@@ -9,6 +9,7 @@ public class UserLogin {
         return USER_PASSWORD;
     }
 
+    //TODO User name and password Constructor
     public static void setUserPassword(String userPassword) {
         USER_PASSWORD = userPassword;
     }
