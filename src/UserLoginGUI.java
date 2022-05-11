@@ -47,9 +47,6 @@ public class UserLoginGUI extends JFrame {
         });
         panel.add(button);
 
-
-
-
         setVisible(true);
     }
 }

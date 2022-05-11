@@ -28,7 +28,7 @@ public class MainGUI extends JFrame implements ActionListener  {
         buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.Y_AXIS));
         buttonPanel.setBackground(new Color(0,0,0,0));
 
-        JButton button = new JButton(About.WINDOW_NAME);
+        JButton button = new JButton(About.getWindowName());
         JButton LoginButton = new JButton(UserLogin.getWindowName());
         //action listener lambda implementation
         button.addActionListener(e -> new AboutGUI());
@@ -40,7 +40,7 @@ public class MainGUI extends JFrame implements ActionListener  {
         panel.add(buttonPanel, BorderLayout.LINE_END);
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setTitle(About.GROUP_NAME);
+        setTitle(About.getGroupName());
         add(panel);
         pack();
         setSize(WIDTH, HEIGHT);
