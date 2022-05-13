@@ -1,8 +1,6 @@
 /**
- *  @author Xavier Hines
  *  @author Jasper Newkirk
- *  @author Jeremy Tirador
- *  @author Phuoc Le
+ *  Date 5/9/22
  *
  *  This class has all the info about the program itself!
  *  @version 0.1.0

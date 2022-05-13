@@ -3,39 +3,51 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * @author Jasper Newkirk
+ * @author Xavier Hines
+ * Date 5/9/22
+ */
 public class MainGUI extends JFrame implements ActionListener  {
 
     /**
-     * Width of GUI window, based on {@link Main#PATH_TO_LOGO} dimensions.
+     * Width of GUI window, based on {@link Main#getPathToLogo()} dimensions.
      */
     private static final int WIDTH = 684;
     /**
-     * Height of GUI window, based on {@link Main#PATH_TO_LOGO} dimensions.
+     * Height of GUI window, based on {@link Main#getPathToLogo()} dimensions.
      */
     private static final int HEIGHT = 729;
 
+    /**
+     * Paints and image onto the main GUI
+     */
     private JPanel panel = new JPanel(new BorderLayout()) {
         @Override
         protected void paintComponent(Graphics g) {
             super.paintComponent(g);
-            g.drawImage(new ImageIcon(Main.PATH_TO_LOGO).getImage(), 0, 0, null);
+            g.drawImage(new ImageIcon(Main.getPathToLogo()).getImage(), 0, 0, null);
         }
     };
 
+    /**
+     * Constructs a new MainGUI, painting image as background and adding
+     * Login and About buttons to the main window
+     */
     public MainGUI() {
         // Init buttonPanel that holds Main buttons
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.Y_AXIS));
         buttonPanel.setBackground(new Color(0,0,0,0));
 
-        JButton button = new JButton(About.getWindowName());
-        JButton LoginButton = new JButton(UserLogin.getWindowName());
-        //action listener lambda implementation
-        button.addActionListener(e -> new AboutGUI());
-        LoginButton.addActionListener(e -> new UserLoginGUI());
+        JButton aboutButton = new JButton(About.getWindowName());
+        JButton loginButton = new JButton(UserLogin.getWindowName());
+        //Action Listeners for aboutButton and loginButton
+        aboutButton.addActionListener(e -> new AboutGUI());
+        loginButton.addActionListener(e -> new UserLoginGUI());
 
-        buttonPanel.add(button);
-        buttonPanel.add(LoginButton);
+        buttonPanel.add(aboutButton);
+        buttonPanel.add(loginButton);
 
         panel.add(buttonPanel, BorderLayout.LINE_END);
 
