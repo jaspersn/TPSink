@@ -1,10 +1,22 @@
 import javax.swing.*;
 
+/**
+ * @author Xavier Hines
+ * Date 5/9/22
+ */
 public class UserLoginGUI extends JFrame {
 
+    /**
+     * Panel containing all the user needs to login
+     */
     private final JPanel panel = new JPanel();
 
 
+    /**
+     * Creates two text boxes labeled 'User' and 'Password' that will collect that
+     * information from the user. One button labeled Login that checks that info
+     * against stored user login info.
+     */
     public UserLoginGUI() {
         setSize(350,200);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -42,13 +54,10 @@ public class UserLoginGUI extends JFrame {
         JButton button = new JButton("Login");
         button.setBounds(10,80,80,25);
         //Action for password checking
-        button.addActionListener(e ->{
-            UserLogin.yourMethod(success, userText.getText(), passwordText.getText());
-        });
+        button.addActionListener(e ->
+                UserLogin.checkUserAndPassword(success, userText.getText(), passwordText.getText())
+        );
         panel.add(button);
-
-
-
 
         setVisible(true);
     }
