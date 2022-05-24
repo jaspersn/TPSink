@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
 
 /**
  * @author Xavier Hines
@@ -63,14 +64,27 @@ public class LoginGUI extends JFrame {
         JButton importUserButton = new JButton("Import User");
         importUserButton.setBounds(10,120,130,25);
         importUserButton.addActionListener(e ->
-                System.out.println("This is Xavier's Job I am simply the messenger -Jasper")
+                {
+                    try {
+                        new User().userImport();
+                    } catch (Exception ex) {
+                        ex.printStackTrace();
+                    }
+                }
         );
         panel.add(importUserButton);
 
+        //export settings button
         JButton exportUserButton = new JButton("Export User");
         exportUserButton.setBounds(150,120,130,25);
         exportUserButton.addActionListener(e ->
-                System.out.println("This is Xavier's Job I am simply the messenger -Jasper")
+                {
+                    try {
+                        new User().userExport();
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                    }
+                }
         );
         panel.add(exportUserButton);
 

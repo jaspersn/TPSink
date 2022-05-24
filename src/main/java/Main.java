@@ -14,9 +14,9 @@ public class Main {
      * @param args
      */
     public static void main(String[] args) throws Exception {
-        User us = new User();
-        us.yamlCall();
-        us.yamlWrite();
+        //User us = new User();
+        //us.yamlRead();
+        //us.yamlWrite();
         new MainGUI();
     }
 
