@@ -34,7 +34,7 @@ public class About {
     /**
      * An array of about info headings
      */
-    private static final String[] HEADINGS = {"This app is registered to: " + UserLogin.getUserName(), "This app is provided by: " + GROUP_NAME};
+    private static final String[] HEADINGS = {"This app is registered to: " + Login.getUserName(), "This app is provided by: " + GROUP_NAME};
 
     /**
      * @return HEADINGS

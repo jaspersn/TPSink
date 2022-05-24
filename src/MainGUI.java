@@ -41,10 +41,10 @@ public class MainGUI extends JFrame implements ActionListener  {
         buttonPanel.setBackground(new Color(0,0,0,0));
 
         JButton aboutButton = new JButton(About.getWindowName());
-        JButton loginButton = new JButton(UserLogin.getWindowName());
+        JButton loginButton = new JButton(Login.getWindowName());
         //Action Listeners for aboutButton and loginButton
         aboutButton.addActionListener(e -> new AboutGUI());
-        loginButton.addActionListener(e -> new UserLoginGUI());
+        loginButton.addActionListener(e -> new LoginGUI());
 
         buttonPanel.add(aboutButton);
         buttonPanel.add(loginButton);
