@@ -1,11 +1,10 @@
 import javax.swing.*;
-import java.awt.*;
 
 /**
  * @author Xavier Hines
  * Date 5/9/22
  */
-public class LoginGUI extends JFrame {
+public class UserLoginGUI extends JFrame {
 
     /**
      * Panel containing all the user needs to login
@@ -18,10 +17,11 @@ public class LoginGUI extends JFrame {
      * information from the user. One button labeled Login that checks that info
      * against stored user login info.
      */
-    public LoginGUI() {
+    public UserLoginGUI() {
         setSize(350,200);
-        setTitle(Login.getWindowName());
-
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        setTitle("Login");
+        add(panel);
 
         panel.setLayout(null);
 
@@ -50,32 +50,15 @@ public class LoginGUI extends JFrame {
         success.setBounds(10,110,300,25);
         panel.add(success);
 
-        // Login Button
-        JButton loginButton = new JButton("Login");
-        loginButton.setBounds(10,80,80,25);
-        // Action for password checking
-        loginButton.addActionListener(e ->
-                Login.checkUserAndPassword(success, userText.getText(), String.valueOf(passwordText.getPassword()))
+        //Login Button
+        JButton button = new JButton("Login");
+        button.setBounds(10,80,80,25);
+        //Action for password checking
+        button.addActionListener(e ->
+                UserLogin.checkUserAndPassword(success, userText.getText(), passwordText.getText())
         );
-        panel.add(loginButton);
+        panel.add(button);
 
-        // Import Settings Button
-        JButton importUserButton = new JButton("Import User");
-        importUserButton.setBounds(10,120,130,25);
-        importUserButton.addActionListener(e ->
-                System.out.println("This is Xavier's Job I am simply the messenger -Jasper")
-        );
-        panel.add(importUserButton);
-
-        JButton exportUserButton = new JButton("Export User");
-        exportUserButton.setBounds(150,120,130,25);
-        exportUserButton.addActionListener(e ->
-                System.out.println("This is Xavier's Job I am simply the messenger -Jasper")
-        );
-        panel.add(exportUserButton);
-
-        add(panel);
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setVisible(true);
     }
 }
