@@ -1,0 +1,13 @@
+userName: "Jasper"
+password: "1234"
+userNumber: 10
+userList:
+- "HI"
+- "bye"
+- "ugh"
+- "sure"
+rt:
+  appliances:
+  - "Washer"
+  - "Dryer"
+  - "Sink"

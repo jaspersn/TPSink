@@ -47,7 +47,7 @@ public class LoginGUI extends JFrame {
 
         //success label
         JLabel success = new JLabel("");
-        success.setBounds(10,110,300,25);
+        success.setBounds(120,80,300,25);
         panel.add(success);
 
         // Login Button
