@@ -8,3 +8,6 @@
 
 ### Deliverable 2:
 [Deliverable_2.pdf](https://github.com/TechPoweredSolutionsInc-TPSINK/TPSink/files/8735064/Deliverable_2.pdf)
+
+### Iteration 2:
+[Iteration 2.docx](https://github.com/TechPoweredSolutionsInc-TPSINK/TPSink/files/8767713/Iteration.2.docx)
