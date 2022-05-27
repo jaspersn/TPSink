@@ -10,6 +10,8 @@ import java.io.IOException;
  *  @version 0.1.0
  */
 public class infoGUI extends JFrame {
+    //TODO: This is a Band aid right now do not use
+    //maybe use as base for add new user
     private final JPanel panel = new JPanel();
 
     /**
