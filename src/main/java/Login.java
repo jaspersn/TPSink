@@ -4,7 +4,7 @@ import javax.swing.*;
  * @author Xavier Hines
  * Date 5/9/22
  */
-public class UserLogin {
+public class Login {
     /**
      * name of the window
      */
