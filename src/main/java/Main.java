@@ -13,7 +13,10 @@ public class Main {
      * main method, runs program
      * @param args
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
+        //User us = new User();
+        //us.yamlRead();
+        //us.yamlWrite();
         new MainGUI();
     }
 
