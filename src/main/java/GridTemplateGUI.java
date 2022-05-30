@@ -4,7 +4,7 @@ import java.awt.event.ActionListener;
 import java.io.File;
 
 /**
- * An abstract class containing basic functionality for managing {@linkRoom} and {@linkUser} objects.
+ * An abstract class containing basic functionality for managing {@link Appliance} and {@link User} objects.
  * @author Jasper Newkirk
  * @version 1.0.0
  */
@@ -25,7 +25,7 @@ public abstract class GridTemplateGUI extends JFrame {
     private final JPanel backButtonPanel = new JPanel();
 
     /**
-     * Constructs a new GridTemplateGUI window with a grid of {@link JButton}'s denoting all directories in the current {@code path}.
+     * Constructs a new {@link GridTemplateGUI} window with a grid of {@link JButton}'s denoting all directories in the current {@code path}.
      * @param path The parent directory.
      * @throws HeadlessException when the environment does not support a keyboard, display, or mouse.
      */
@@ -51,18 +51,6 @@ public abstract class GridTemplateGUI extends JFrame {
     }
 
     /**
-     * Creates and returns the child paths and files in the given {@code dir} directory as a {@link File} array.
-     * @param dir the directory to be loaded from.
-     * @return the child paths and files in the given {@code dir} directory as a {@link File} array or
-     * {@code null} if the directory is empty.
-     */
-    private File[] loadDir(String dir) {
-        File f = new File(dir);
-        if (f.exists() && f.isDirectory()) return f.listFiles();
-        return null;
-    }
-
-    /**
      * Initializes the button panel consisting of all directories and files present in {@code path}.
      * Empty directories will return only an add button.
      * @param path the directory to which the button's will populate.
@@ -70,7 +58,7 @@ public abstract class GridTemplateGUI extends JFrame {
      */
     private JPanel initButtonPanel(String path) {
         JPanel buttonPanel = new JPanel(new GridLayout(0, 2)); // infinite rows
-        File[] labels = loadDir(path);
+        File[] labels = GridTemplate.loadDir(path);
         if (labels != null) {
             for (File f : labels) {
                 JButton b = new JButton(f.getName());
@@ -86,8 +74,6 @@ public abstract class GridTemplateGUI extends JFrame {
         return buttonPanel;
     }
 
-
-
     /**
      * Returns a functional {@link JButton} within a {@link JPanel} used to go back to the previous screen.
      * @return a functional {@link JButton} within a {@link JPanel} used to go back to the previous screen.
@@ -101,6 +87,10 @@ public abstract class GridTemplateGUI extends JFrame {
      */
     protected abstract ActionListener getButtonActionListener(String path);
 
+    /**
+     * Returns the {@link ActionListener} to be executed upon pressing the "Add" button in this window.
+     * @return the {@link ActionListener} to be executed upon pressing the "Add" button in this window.
+     */
     protected abstract ActionListener getAddButtonActionListener();
 
 }

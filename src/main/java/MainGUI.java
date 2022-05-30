@@ -42,12 +42,15 @@ public class MainGUI extends JFrame implements ActionListener  {
 
         JButton aboutButton = new JButton(About.getWindowName());
         JButton loginButton = new JButton(Login.getWindowName());
+        JButton enterSettings = new JButton("User Info");
         //Action Listeners for aboutButton and loginButton
         aboutButton.addActionListener(e -> new AboutGUI());
         loginButton.addActionListener(e -> new LoginGUI());
+        enterSettings.addActionListener(e -> new infoGUI());
 
         buttonPanel.add(aboutButton);
         buttonPanel.add(loginButton);
+        buttonPanel.add(enterSettings);
 
         panel.add(buttonPanel, BorderLayout.LINE_END);
 
