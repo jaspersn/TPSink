@@ -1,14 +1,17 @@
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionListener;
 
 public class RoomGUI extends GridTemplateGUI{
 
     private final String prevPath;
+    private final String currentPath;
 
     public RoomGUI(String path) {
         super("User\\" + path + "\\");
         setTitle(path.substring(path.lastIndexOf("\\") + 1)); // Override title back to simple name
         this.prevPath = path.substring(0, path.lastIndexOf("\\"));
+        this.currentPath = path;
         System.out.println(prevPath);
     }
 
@@ -30,7 +33,10 @@ public class RoomGUI extends GridTemplateGUI{
 
     @Override
     protected ActionListener getAddButtonActionListener() {
-        //TODO: IMPLEMENT THIS
-        return null;
+        return e-> {
+
+            new RoomGUIHelper(prevPath, currentPath);
+
+        };
     }
 }

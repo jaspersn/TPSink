@@ -4,7 +4,7 @@ import java.awt.event.ActionListener;
 import java.io.File;
 
 /**
- * An abstract class containing basic functionality for managing {@link Room} and {@link User} objects.
+ * An abstract class containing basic functionality for managing {@linkRoom} and {@linkUser} objects.
  * @author Jasper Newkirk
  * @version 1.0.0
  */
@@ -85,6 +85,8 @@ public abstract class GridTemplateGUI extends JFrame {
         buttonPanel.add(addButton);
         return buttonPanel;
     }
+
+
 
     /**
      * Returns a functional {@link JButton} within a {@link JPanel} used to go back to the previous screen.
