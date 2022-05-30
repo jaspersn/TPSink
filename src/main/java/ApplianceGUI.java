@@ -4,11 +4,25 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 
+/**
+ * A class containing basic functionality for managing {@link Appliance} objects in a {@link Appliance}.
+ *  @author Jasper Newkirk
+ *  @version 1.0.0
+ */
 public class ApplianceGUI extends GridTemplateGUI{
-
+    /**
+     * The path the room containing this {@link Appliance}.
+     */
     private final String prevPath;
+    /**
+     * The current path to this {@link Appliance}.
+     */
     private final String path;
-
+    /**
+     * Constructs a new {@link ApplianceGUI} window with a grid of {@link JButton}'s denoting all directories in the current {@code path}.
+     * @param path The parent directory.
+     * @throws HeadlessException when the environment does not support a keyboard, display, or mouse.
+     */
     public ApplianceGUI(String path) {
         super("User\\" + path + "\\");
         this.path = "User\\" + path + "\\";
@@ -51,17 +65,7 @@ public class ApplianceGUI extends GridTemplateGUI{
             newFileDialog.add(fileName);
             JButton okButton = new JButton ("Save");
             okButton.addActionListener(l -> {
-                // TODO: Test this
-                String filePath = path + fileName.getText();
-                File f = new File(filePath + ".docx");
-                int i = 0;
-                while (f.exists()) {
-                    f = new File(filePath + "(" + ++i + ").docx");
-                }
-                try {
-                    f.createNewFile();
-                } catch (IOException ex) {
-                }
+                new Note(fileName.getText(), path);
                 newFileDialog.dispose();
                 dispose();
                 new ApplianceGUI(path.substring(path.indexOf("\\") + 1).substring(0, path.substring(path.indexOf("\\") + 1).length() - 1));

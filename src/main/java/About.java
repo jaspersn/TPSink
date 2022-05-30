@@ -9,7 +9,7 @@ public class About {
     /**
      * The current version number of the program.
      */
-    private static final String VERSION = "0.1.0";
+    private static final String VERSION = "0.1.2";
 
     /**
      * returns Version
