@@ -34,7 +34,7 @@ public class User {
 
 
 
-    private ObjectMapper objMap = new ObjectMapper(new YAMLFactory().disable(YAMLGenerator.Feature.WRITE_DOC_START_MARKER));
+    private final ObjectMapper objMap = new ObjectMapper(new YAMLFactory().disable(YAMLGenerator.Feature.WRITE_DOC_START_MARKER));
 
     /**
      * Default constructor
@@ -119,7 +119,7 @@ public class User {
      * @return user object with values read from yaml file
      * @throws Exception
      */
-    public User yamlRead(File F) throws Exception {
+    public User yamlReadFile(File F) throws Exception {
         User userTDA = objMap.readValue(F, User.class);
         System.out.println(userTDA.toString());
         return userTDA;
@@ -173,7 +173,7 @@ public class User {
             file = fileChooser.getSelectedFile();
         }
 
-        userImportWrite(yamlRead(file));
+        userImportWrite(yamlReadFile(file));
     }
 
     /**
