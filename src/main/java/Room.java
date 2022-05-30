@@ -1,59 +1,73 @@
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
-import com.fasterxml.jackson.dataformat.yaml.YAMLGenerator;
 
+import java.awt.*;
 import java.io.File;
-import java.util.Arrays;
 
 /**
- *  @author Xavier Hines
- * @author Phuoc Le
- *  Date 5/27/2022
- *
- * Room model that will create new .yml as well as read from existing when
- * path is specified. Still needs to be worked.
- *  @version 0.1.0
+ * A representation of a {@link Room} object including a name and other optional fields.
+ * @author Jasper Newkirk
+ * @version 1.0.0
  */
 public class Room {
-    private String roomName;
-    private String[] applianceList;
+    /**
+     * The name of the current {@link Room}.
+     */
+    private final String name;
+    /**
+     * The dimensions of the current {@link Room}.
+     */
+    private final Dimension dimensions;
+    /**
+     * The description of the current {@link Room}.
+     */
+    private final String description;
 
-    private final ObjectMapper objMap = new ObjectMapper(
-            new YAMLFactory().disable(YAMLGenerator.Feature.WRITE_DOC_START_MARKER));
-
-    Room() {
-        new RoomGUI("User");
+    /**
+     * Constructs a new {@link Room} with the given {@code name}. And creates a corresponding folder in the given {@code path}.
+     * @param name The name to be givn to the current {@link Room}.
+     * @param path The path to the directory associated to the current {@link Room}.
+     */
+    public Room(String name, String path) {
+        this(name, path, null, "");
+    }
+    /**
+     * Constructs a new {@link Room} with the given {@code name}. And creates a corresponding folder in the given {@code path}.
+     * @param name The name to be givn to the current {@link Room}.
+     * @param path The path to the directory associated to the current {@link Room}.
+     * @param dimensions The dimensions of this room.
+     */
+    public Room(String name, String path, Dimension dimensions) {
+        this(name, path, dimensions, "");
+    }
+    /**
+     * Constructs a new {@link Room} with the given {@code name}. And creates a corresponding folder in the given {@code path}.
+     * @param name The name to be givn to the current {@link Room}.
+     * @param path The path to the directory associated to the current {@link Room}.
+     * @param description The description of the current {@link Room}.
+     */
+    public Room(String name, String path, String description) {
+        this(name, path, null, description);
     }
 
-    Room(String name, String[] sl) {
-
-    }
-
-    public String getRoomName() {
-        return roomName;
-    }
-
-    public void setRoomName(String roomName) {
-        this.roomName = roomName;
-    }
-
-    public String[] getApplianceList() {
-        return applianceList;
-    }
-
-    public void setApplianceList(String[] applianceList) {
-        this.applianceList = applianceList;
-    }
-
-    public void yamlRead() throws Exception {
-        File ymlFile = new File("src/main/DataFiles/RoomInfo.yml");
-        Room r = objMap.readValue(ymlFile, Room.class);
-        System.out.println(r);
-    }
-
-    @Override
-    public String toString(){
-        return "Room name: " + roomName + "\nAppliance list: " + Arrays.toString(applianceList);
+    /**
+     * Constructs a new {@link Room} with the given {@code name}. And creates a corresponding folder in the given {@code path}.
+     * @param name The name to be givn to the current {@link Room}.
+     * @param path The path to the directory associated to the current {@link Room}.
+     * @param dimensions The dimensions of the current room.
+     * @param description The description of the current {@link Room}.
+     */
+    public Room(String name, String path, Dimension dimensions, String description) {
+        // TODO: Test this
+        File room = new File(path + "\\" + name);
+        int i = 1;
+        while (!room.mkdir()) {
+            room = new File(path + "\\" + name + "(" + i++ + ")");
+        }
+        name += "(" + i + ")";
+        this.name = name;
+        this.dimensions = dimensions;
+        this.description = description;
     }
 }
+
+
 
