@@ -14,7 +14,7 @@ public class Main {
      * @param args
      */
     public static void main(String[] args) throws Exception {
-        Room r = new Room();
+        //Room r = new Room();
         r.yamlRead();
         //User us = new User();
         //us.yamlRead();
