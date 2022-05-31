@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 /**
  * @author Jasper Newkirk
@@ -34,18 +35,24 @@ public class MainGUI extends JFrame implements ActionListener  {
      * Constructs a new MainGUI, painting image as background and adding
      * Login and About buttons to the main window
      */
-    public MainGUI() {
+    public MainGUI(){
         // Init buttonPanel that holds Main buttons
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.Y_AXIS));
         buttonPanel.setBackground(new Color(0,0,0,0));
 
         JButton aboutButton = new JButton(About.getWindowName());
-        JButton loginButton = new JButton(Login.getWindowName());
+        JButton loginButton = new JButton("Login");
         JButton enterSettings = new JButton("User Info");
         //Action Listeners for aboutButton and loginButton
         aboutButton.addActionListener(e -> new AboutGUI());
-        loginButton.addActionListener(e -> new LoginGUI());
+        loginButton.addActionListener(e -> {
+            try {
+                new LoginGUI();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        });
         enterSettings.addActionListener(e -> new infoGUI());
 
         buttonPanel.add(aboutButton);

@@ -13,6 +13,8 @@ public class LoginGUI extends JFrame {
      */
     private final JPanel panel = new JPanel();
 
+    private Login L = new Login();
+
 
     /**
      * Creates two text boxes labeled 'User' and 'Password' that will collect that
@@ -21,7 +23,7 @@ public class LoginGUI extends JFrame {
      */
     public LoginGUI() {
         setSize(350,200);
-        setTitle(Login.getWindowName());
+        setTitle(L.getWindowName());
 
 
         panel.setLayout(null);
@@ -56,7 +58,14 @@ public class LoginGUI extends JFrame {
         loginButton.setBounds(10,80,80,25);
         // Action for password checking
         loginButton.addActionListener(e ->
-                Login.checkUserAndPassword(success, userText.getText(), String.valueOf(passwordText.getPassword()))
+                {
+                    try {
+                        L.checkUserAndPassword(success, userText.getText(), String.valueOf(passwordText.getPassword()));
+                    } catch (Exception ex) {
+                        ex.printStackTrace();
+                    }
+                }
+
         );
         panel.add(loginButton);
 

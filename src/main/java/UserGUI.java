@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.io.IOException;
 
 public class UserGUI extends GridTemplateGUI{
     private final String path;
@@ -16,7 +17,11 @@ public class UserGUI extends GridTemplateGUI{
     protected ActionListener getBackButtonActionListener() {
         return e -> {
             dispose();
-            new MainGUI();
+            try {
+                new MainGUI();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
         };
     }
 
