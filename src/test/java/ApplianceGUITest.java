@@ -27,4 +27,9 @@ class ApplianceGUITest {
         assertEquals("User\\Le\\Kitchen\\spoon\\", appG.getPath()); // the path is used to call is different from path is saved
     }
 
+    @Test
+    void testRoomGUITile(){
+        assertEquals("spoon", appG.getTitle());
+    }
+
 }

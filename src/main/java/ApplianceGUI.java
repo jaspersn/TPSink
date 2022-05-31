@@ -28,8 +28,8 @@ public class ApplianceGUI extends GridTemplateGUI{
         this.path = "User\\" + path + "\\";
         setTitle(path.substring(path.lastIndexOf("\\") + 1)); // Override title back to simple name
         this.prevPath = path.substring(0, path.lastIndexOf("\\"));
-        System.out.println(getPrevPath());
-        System.out.println(getPath());
+//        System.out.println(getPrevPath());
+//        System.out.println(getPath());
     }
 
     @Override

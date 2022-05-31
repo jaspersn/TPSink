@@ -30,7 +30,7 @@ public abstract class GridTemplateGUI extends JFrame {
      * @throws HeadlessException when the environment does not support a keyboard, display, or mouse.
      */
     public GridTemplateGUI(String path) throws HeadlessException {
-        System.out.println(path);
+//        System.out.println(path);
         setSize(WIDTH, HEIGHT);
         panel.setLayout(new BorderLayout());
 

@@ -27,6 +27,10 @@ class RoomGUITest {
         assertEquals("User\\Le\\Kitchen\\", roomG.getPath()); // the path is used to call is different from path is saved
     }
 
+    @Test
+    void testRoomGUITile(){
+        assertEquals("Kitchen", roomG.getTitle());
+    }
 
 
 }

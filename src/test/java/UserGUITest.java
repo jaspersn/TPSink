@@ -27,5 +27,8 @@ class UserGUITest {
         assertNotNull(newUser);
         assertEquals("User\\JohnWick\\", newUser.getPath());
     }
-
+    @Test
+    void testUserGUITile(){
+        assertEquals("Le", userG.getTitle());
+    }
 }
