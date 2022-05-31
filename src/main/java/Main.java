@@ -1,3 +1,5 @@
+import java.io.File;
+
 /**
  * @author Xavier Hines
  * Date 5/12/22
@@ -15,12 +17,15 @@ public class Main {
      */
     public static void main(String[] args) throws Exception {
         //Room r = new Room();
-        r.yamlRead();
+        //r.yamlRead();
         //User us = new User();
         //us.yamlRead();
         //us.yamlWrite();
         //new MainGUI();
-        //new RoomGUI("Test");
+        //new RoomGUI("Le");
+        new UserGUI("Le");
+//        File le = new File("User/Le");
+//        System.out.print(le.isDirectory());
     }
 
     /**

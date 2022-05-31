@@ -4,6 +4,7 @@ import java.awt.event.ActionListener;
 import java.io.File;
 
 public class UserGUI extends GridTemplateGUI{
+
     private final String path;
     public UserGUI(String username) {
         super("User\\" + username + "\\");
@@ -24,6 +25,8 @@ public class UserGUI extends GridTemplateGUI{
     protected ActionListener getButtonActionListener(String path) {
         return e -> {
             dispose();
+
+//            System.out.println(path + " before");
             new RoomGUI(path);
         };
     }
@@ -46,6 +49,7 @@ public class UserGUI extends GridTemplateGUI{
                 new Room(roomName.getText(), path, description.getText());
                 newRoomDialog.dispose();
                 dispose();
+ //               System.out.println(path.indexOf("\\"));
                 new UserGUI(path.substring(path.indexOf("\\") + 1).substring(0, path.substring(path.indexOf("\\") + 1).length() - 1));
             });
             newRoomDialog.add(okButton);
@@ -59,4 +63,11 @@ public class UserGUI extends GridTemplateGUI{
         File user = new File(path);
         user.mkdir();
     }
+
+    public String getPath() {
+        return path;
+    }
+
+
+
 }
