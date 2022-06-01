@@ -48,7 +48,7 @@ public class User {
      * @param email user email
      */
     public User(String name, String pass, String email) {
-        //TODO need to create UserInfo.yml and LoginInfo.yml when new user constructed
+        //TODO need to create UserInfo.yml and login info when new user constructed
         userName = name;
         password = pass;
         userEmail = email;

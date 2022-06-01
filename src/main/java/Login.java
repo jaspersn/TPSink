@@ -76,8 +76,8 @@ public class Login {
     }
 
     //TODO make a version that excepts file name/user name and gets info from that file
-    public Login readLoginInfo() throws Exception {
-        File ymlFile = new File("src/main/DataFiles/LoginInfo.yml");
+    public Login readLoginInfo(String name) throws Exception {
+        File ymlFile = new File("src/main/DataFiles/"+name + "Info.yml");
         Login getLogin = objMap.readValue(ymlFile, Login.class);
         System.out.println(getLogin);
         return getLogin;
@@ -92,7 +92,7 @@ public class Login {
      */
     public void checkUserAndPassword(JLabel success, LoginGUI gui,String name, String pass) throws Exception {
         // TODO: Upon successful Login dispose other windows
-        Login loginInfo = readLoginInfo();
+        Login loginInfo = readLoginInfo(name);
         if (name.equals(loginInfo.userName) &&
                 pass.equals(loginInfo.password)) {
             success.setText("Login successful");

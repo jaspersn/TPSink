@@ -30,6 +30,10 @@ public class RoomGUI extends GridTemplateGUI{
         System.out.println(prevPath);
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     protected ActionListener getBackButtonActionListener() {
         return e -> {
