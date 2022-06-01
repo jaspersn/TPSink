@@ -14,7 +14,13 @@ public class LoginGUI extends JFrame {
     private final JPanel panel = new JPanel();
 
     private Login L = new Login();
+    private JFrame parent;
 
+    public LoginGUI(MainGUI Mommy) throws HeadlessException {
+        this();
+        parent = Mommy;
+
+    }
 
     /**
      * Creates two text boxes labeled 'User' and 'Password' that will collect that
@@ -60,7 +66,7 @@ public class LoginGUI extends JFrame {
         loginButton.addActionListener(e ->
                 {
                     try {
-                        L.checkUserAndPassword(success, userText.getText(), String.valueOf(passwordText.getPassword()));
+                        L.checkUserAndPassword(success, this, userText.getText(), String.valueOf(passwordText.getPassword()));
                     } catch (Exception ex) {
                         ex.printStackTrace();
                     }
@@ -100,5 +106,10 @@ public class LoginGUI extends JFrame {
         add(panel);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setVisible(true);
+    }
+
+    @Override
+    public JFrame getParent() {
+        return parent;
     }
 }

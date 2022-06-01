@@ -90,13 +90,15 @@ public class Login {
      * @param name String representing username
      * @param pass String representing password
      */
-    public void checkUserAndPassword(JLabel success, String name, String pass) throws Exception {
+    public void checkUserAndPassword(JLabel success, LoginGUI gui,String name, String pass) throws Exception {
         // TODO: Upon successful Login dispose other windows
         Login loginInfo = readLoginInfo();
         if (name.equals(loginInfo.userName) &&
                 pass.equals(loginInfo.password)) {
             success.setText("Login successful");
-            new RoomGUI(name);
+            gui.dispose();
+            gui.getParent().dispose();
+            new UserGUI(name);
         } else {
             success.setText("Wrong User Name Or Pass");
         }

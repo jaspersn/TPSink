@@ -48,7 +48,7 @@ public class MainGUI extends JFrame implements ActionListener  {
         aboutButton.addActionListener(e -> new AboutGUI());
         loginButton.addActionListener(e -> {
             try {
-                new LoginGUI();
+                new LoginGUI(this);
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
