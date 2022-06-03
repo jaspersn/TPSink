@@ -53,6 +53,8 @@ public class RoomGUI extends GridTemplateGUI{
     @Override
     protected ActionListener getAddButtonActionListener() {
         return e -> {
+            //Creates a series of Jlabels and dialog boxes for createing a room and describing
+            //what is in the room or it purpose
             JDialog newRoomDialog = new JDialog(this, "Create Appliance:");
             newRoomDialog.setLayout( new FlowLayout() );
             newRoomDialog.add( new JLabel ("Create a New Appliance:"));
@@ -61,6 +63,9 @@ public class RoomGUI extends GridTemplateGUI{
             newRoomDialog.add( new JLabel ("Description:"));
             JTextField description = new JTextField("", 20);
             newRoomDialog.add(description);
+            
+            //New button 'Save' that will save the Room name and description and 
+            //create a new room folder
             JButton okButton = new JButton ("Save");
             okButton.addActionListener(l -> {
                 // TODO: Test this
@@ -70,6 +75,7 @@ public class RoomGUI extends GridTemplateGUI{
                 dispose();
                 new RoomGUI(path.substring(path.indexOf("\\") + 1).substring(0, path.substring(path.indexOf("\\") + 1).length() - 1));
             });
+            
             newRoomDialog.add(okButton);
             newRoomDialog.setSize(400,200);
             newRoomDialog.setVisible(true);
