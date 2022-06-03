@@ -13,6 +13,8 @@ public class GridTemplate {
      */
     static File[] loadDir(String dir) {
         File f = new File(dir);
+//        System.out.print(f.getPath());
+//        System.out.print(f.isDirectory());
         if (f.exists() && f.isDirectory()) return f.listFiles();
         return null;
     }

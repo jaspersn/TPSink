@@ -30,6 +30,7 @@ public abstract class GridTemplateGUI extends JFrame {
      * @throws HeadlessException when the environment does not support a keyboard, display, or mouse.
      */
     public GridTemplateGUI(String path) throws HeadlessException {
+//        System.out.println(path);
         setSize(WIDTH, HEIGHT);
         panel.setLayout(new BorderLayout());
 
@@ -62,7 +63,8 @@ public abstract class GridTemplateGUI extends JFrame {
         if (labels != null) {
             for (File f : labels) {
                 JButton b = new JButton(f.getName());
-                b.addActionListener(getButtonActionListener(f.getPath().substring(f.getPath().indexOf("\\") + 1)));
+                b.addActionListener(getButtonActionListener(f.getPath().substring(f.getPath().indexOf("\\") +1)));
+                // b.addActionListener(getButtonActionListener(f.getPath().substring(f.getPath().indexOf("\\") + 1)));
                 b.setPreferredSize(new Dimension(0, HEIGHT / 4));
                 buttonPanel.add(b);
             }

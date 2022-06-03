@@ -27,7 +27,8 @@ public class RoomGUI extends GridTemplateGUI{
         this.path = "User\\" + path + "\\";
         setTitle(path.substring(path.lastIndexOf("\\") + 1)); // Override title back to simple name
         this.prevPath = path.substring(0, path.lastIndexOf("\\"));
-        System.out.println(prevPath);
+//        System.out.println(getPath()+ " after");
+//        System.out.println(getPrevPath());
     }
 
     /**
@@ -46,6 +47,7 @@ public class RoomGUI extends GridTemplateGUI{
     protected ActionListener getButtonActionListener(String path) {
         return e -> {
             dispose();
+            System.out.println(path);
             new ApplianceGUI(path);
         };
     }
@@ -81,5 +83,14 @@ public class RoomGUI extends GridTemplateGUI{
             newRoomDialog.setVisible(true);
             add(newRoomDialog);
         };
+    }
+}
+
+    public String getPrevPath() {
+        return prevPath;
+    }
+
+    public String getPath() {
+        return path;
     }
 }
