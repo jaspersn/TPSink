@@ -97,7 +97,7 @@ public class Login {
                 pass.equals(loginInfo.password)) {
             success.setText("Login successful");
             gui.dispose();
-            gui.getParent().dispose();
+            gui.getParentGUI().dispose();
             new UserGUI(name);
         } else {
             success.setText("Wrong User Name Or Pass");

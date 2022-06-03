@@ -16,9 +16,14 @@ public class LoginGUI extends JFrame {
     private Login L = new Login();
     private JFrame parent;
 
-    public LoginGUI(MainGUI Mommy) throws HeadlessException {
+    /**
+     * Passes parent GUI so that they can be closed once logged into a user
+     * @param parent the mainGUI
+     * @throws HeadlessException
+     */
+    public LoginGUI(MainGUI parent) throws HeadlessException {
         this();
-        parent = Mommy;
+        this.parent = parent;
 
     }
 
@@ -108,8 +113,11 @@ public class LoginGUI extends JFrame {
         setVisible(true);
     }
 
-    @Override
-    public JFrame getParent() {
+    /**
+     * Called to return the parent  GUI of the LoginGUI
+     * @return GUI which called LoginGUI
+     */
+    public JFrame getParentGUI() {
         return parent;
     }
 }

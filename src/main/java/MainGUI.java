@@ -2,7 +2,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
 
 /**
  * @author Jasper Newkirk
@@ -53,7 +52,7 @@ public class MainGUI extends JFrame implements ActionListener  {
                 ex.printStackTrace();
             }
         });
-        enterSettings.addActionListener(e -> new infoGUI());
+        enterSettings.addActionListener(e -> new InfoGUI());
 
         buttonPanel.add(aboutButton);
         buttonPanel.add(loginButton);

@@ -4,6 +4,11 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 
+/**
+ *  A class responsible creating a new User panel.
+ *  @author Jasper Newkirk
+ *  @version 0.0.1
+ */
 public class UserGUI extends GridTemplateGUI{
     private final String path;
     public UserGUI(String username) {
