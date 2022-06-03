@@ -14,13 +14,17 @@ public class Main {
      * @param args
      */
     public static void main(String[] args) throws Exception {
-        Room r = new Room();
-        r.yamlRead();
+//        Room r = new Room();
+//        r.yamlRead();
         //User us = new User();
+        //new UserGUI("Xavier");
         //us.yamlRead();
         //us.yamlWrite();
-        //new MainGUI();
-        //new RoomGUI("Test");
+        //new User();
+        new MainGUI();
+        //new RoomGUI("Xavier");
+//        Login a = new Login();
+//        a.yamlRead();
     }
 
     /**
