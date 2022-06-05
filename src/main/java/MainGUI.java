@@ -18,6 +18,10 @@ public class MainGUI extends JFrame implements ActionListener  {
      * Height of GUI window, based on {@link Main#getPathToLogo()} dimensions.
      */
     private static final int HEIGHT = 729;
+    /**
+     * The preferred {@link Font} for this application.
+     */
+    private static final Font font = new Font("Sans-Serif", Font.PLAIN, 40);
 
     /**
      * Paints and image onto the main GUI
@@ -43,6 +47,10 @@ public class MainGUI extends JFrame implements ActionListener  {
         JButton aboutButton = new JButton(About.getWindowName());
         JButton loginButton = new JButton("Login");
         JButton enterSettings = new JButton("New User");
+        JButton enterSettings = new JButton("User Info");
+        aboutButton.setFont(font);
+        loginButton.setFont(font);
+        enterSettings.setFont(font);
         //Action Listeners for aboutButton and loginButton
         aboutButton.addActionListener(e -> new AboutGUI());
         loginButton.addActionListener(e -> {
@@ -54,11 +62,11 @@ public class MainGUI extends JFrame implements ActionListener  {
         });
         enterSettings.addActionListener(e -> new NewUserGUI());
 
-        buttonPanel.add(aboutButton);
         buttonPanel.add(loginButton);
         buttonPanel.add(enterSettings);
+        buttonPanel.add(aboutButton);
 
-        panel.add(buttonPanel, BorderLayout.LINE_END);
+        panel.add(buttonPanel, BorderLayout.LINE_START);
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setTitle(About.getGroupName());
@@ -72,5 +80,14 @@ public class MainGUI extends JFrame implements ActionListener  {
     @Override
     public void actionPerformed(ActionEvent e) {
         new AboutGUI();
+    }
+
+    /**
+     * Returns the {@link MainGUI#font} associated with the {@link MainGUI}.
+     * @author Jasper Newkirk
+     * @return the {@link MainGUI#font} associated with the {@link MainGUI}.
+     */
+    public static Font getPreferredFont() {
+        return font;
     }
 }
