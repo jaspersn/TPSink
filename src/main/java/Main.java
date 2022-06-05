@@ -1,3 +1,6 @@
+import java.awt.*;
+import java.io.File;
+
 /**
  * @author Xavier Hines
  * Date 5/12/22
@@ -15,17 +18,21 @@ public class Main {
      * @param args
      */
     public static void main(String[] args) throws Exception {
-//        Room r = new Room();
-//        r.yamlRead();
+        //Room r = new Room();
+        //r.yamlRead();
         //User us = new User();
         //new UserGUI("Xavier");
         //us.yamlRead();
         //us.yamlWrite();
+        //new MainGUI();
+        //new RoomGUI("Test");
+        //new UserGUI("Jeremy");
         //new User();
         new MainGUI();
         //new RoomGUI("Xavier");
 //        Login a = new Login();
 //        a.yamlRead();
+
     }
 
     /**
