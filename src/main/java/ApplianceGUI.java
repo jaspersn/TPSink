@@ -36,6 +36,14 @@ public class ApplianceGUI extends GridTemplateGUI{
         new ApplianceGUI(path.substring(path.indexOf("\\") + 1).substring(0, path.substring(path.indexOf("\\") + 1).length() - 1));
     }
 
+    /**
+     * returns the path of the newly created appliance folder
+     * @return path of new appliance folder
+     */
+    public String getPath() {
+        return path;
+    }
+
     @Override
     protected ActionListener getBackButtonActionListener() {
         return e -> {

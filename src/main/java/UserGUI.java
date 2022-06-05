@@ -14,12 +14,25 @@ import java.nio.file.Path;
  */
 public class UserGUI extends GridTemplateGUI{
 
+    /**
+     * the string representation fo the current path
+     */
     private String path;
+
     public UserGUI(String username) {
         super("User\\" + username + "\\");
         this.path = "User\\" + username + "\\";
         setTitle(username); // Override title back to simple name
         initUser();
+    }
+
+    /**
+     * returns the path of the new user folder
+     * @author Xavier Hines
+     * @return the path of the new user folder
+     */
+    public String getPath() {
+        return path;
     }
 
     @Override

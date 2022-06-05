@@ -37,6 +37,8 @@ public class MainGUI extends JFrame implements ActionListener  {
     /**
      * Constructs a new MainGUI, painting image as background and adding
      * Login and About buttons to the main window
+     * @author Xavier Hines
+     * @author Jasper Newkirk
      */
     public MainGUI(){
         // Init buttonPanel that holds Main buttons

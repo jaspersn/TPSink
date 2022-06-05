@@ -31,21 +31,23 @@ public class User {
      */
     private String userEmail;
 
-
-
-
+   /**
+     * Used to read from and write to .yml files
+     */
     private final ObjectMapper objMap = new ObjectMapper(
                                         new YAMLFactory().disable(
                                             YAMLGenerator.Feature.
                                             WRITE_DOC_START_MARKER));
-
+  
     /**
      * Default constructor
+     * @author Xavier Hines
      */
     public User(){}
 
     /**
      * Constructor when information needs to be stored or passed
+     * @author Xavier Hines
      * @param name username
      * @param pass user password
      * @param email user email
@@ -59,12 +61,14 @@ public class User {
 
     /**
      * will return username
+     * @author Xavier Hines
      * @return username
      */
     public String getUserName() {return userName;}
 
     /**
      * will set username
+     * @author Xavier Hines
      * @param userName username passed in
      */
     public void setUserName(String userName) {
@@ -73,6 +77,7 @@ public class User {
 
     /**
      * will return password
+     * @author Xavier Hines
      * @return password
      */
     public String getPassword() {
@@ -81,6 +86,7 @@ public class User {
 
     /**
      * will return password
+     * @author Xavier Hines
      */
     public void setPassword(String password) {
         this.password = password;
@@ -88,18 +94,21 @@ public class User {
 
     /**
      * will return email
+     * @author Xavier Hines
      * @return email
      */
     public String getUserEmail() {return userEmail;}
 
     /**
      * will set email
+     * @author Xavier Hines
      * @param userEmail email
      */
     public void setUserEmail(String userEmail) {this.userEmail = userEmail;}
 
     /**
-     * overides toString method to print user information
+     * overrides toString method to print user information
+     * @author Xavier Hines
      * @return return string with username, password, and email
      */
     @Override
@@ -109,6 +118,7 @@ public class User {
 
     /**
      * will read UserInfo.yml
+     * @author Xavier Hines
      * @throws Exception
      */
     public void yamlRead() throws Exception {
@@ -119,6 +129,7 @@ public class User {
 
     /**
      * will read yaml file passed to it
+     * @author Xavier Hines
      * @param F yaml file
      * @return user object with values read from yaml file
      * @throws Exception
@@ -152,6 +163,7 @@ public class User {
     /**
      * takes a user object and writes to new/existing file with the information
      * passed in the user object
+     * @author Xavier Hines
      * @param u User object
      * @throws IOException
      */
@@ -167,6 +179,7 @@ public class User {
     /**
      * Will import the user information in a yaml file that the user selects
      * through a file chooser.
+     * @author Xavier Hines
      * @throws Exception
      */
     public void userImport() throws Exception {
@@ -186,6 +199,7 @@ public class User {
     /**
      * will export a yaml file with the current information stored in the UserInfo
      * yaml file in DataFiles
+     * @author Xavier Hines
      * @throws IOException
      */
     public void userExport() throws IOException {

@@ -14,6 +14,7 @@ public class Main {
 
     /**
      * main method, runs program
+     * @author Xavier Hines
      * @param args
      */
     public static void main(String[] args) throws Exception {
@@ -36,6 +37,7 @@ public class Main {
 
     /**
      * returns main image path
+     * @author Jasper Newkirk
      * @return main image path
      */
     public static String getPathToLogo() {
