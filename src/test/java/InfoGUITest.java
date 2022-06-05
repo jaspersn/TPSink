@@ -10,14 +10,14 @@ import static org.junit.jupiter.api.Assertions.*;
  * This class is made to test out MainGUI class.
  */
 class InfoGUITest {
-    private infoGUI infoG;
+    private InfoGUI infoG;
 
     /**
      * Set up before we test all methods
      */
     @BeforeEach
     void setUp() {
-        infoG = new infoGUI();
+        infoG = new InfoGUI();
     }
 
     /**
