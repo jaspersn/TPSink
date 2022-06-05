@@ -84,7 +84,6 @@ public class RoomGUI extends GridTemplateGUI{
             add(newRoomDialog);
         };
     }
-}
 
     public String getPrevPath() {
         return prevPath;

@@ -42,7 +42,7 @@ public class MainGUI extends JFrame implements ActionListener  {
 
         JButton aboutButton = new JButton(About.getWindowName());
         JButton loginButton = new JButton("Login");
-        JButton enterSettings = new JButton("User Info");
+        JButton enterSettings = new JButton("New User");
         //Action Listeners for aboutButton and loginButton
         aboutButton.addActionListener(e -> new AboutGUI());
         loginButton.addActionListener(e -> {
@@ -52,7 +52,7 @@ public class MainGUI extends JFrame implements ActionListener  {
                 ex.printStackTrace();
             }
         });
-        enterSettings.addActionListener(e -> new InfoGUI());
+        enterSettings.addActionListener(e -> new NewUserGUI());
 
         buttonPanel.add(aboutButton);
         buttonPanel.add(loginButton);
