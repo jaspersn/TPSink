@@ -109,13 +109,4 @@ public class UserGUI extends GridTemplateGUI{
         }
     }
 
-    /**
-     * Returns the current path of the {@code User} folder.
-     * @return the current path of the {@code User} folder.
-     * @author Phuoc Le
-     */
-    public String getPath() {
-        return path;
-    }
-
 }

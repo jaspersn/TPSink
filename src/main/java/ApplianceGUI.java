@@ -88,7 +88,4 @@ public class ApplianceGUI extends GridTemplateGUI{
         return prevPath;
     }
 
-    public String getPath() {
-        return path;
-    }
 }

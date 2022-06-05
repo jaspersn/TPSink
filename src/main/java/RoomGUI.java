@@ -104,12 +104,4 @@ public class RoomGUI extends GridTemplateGUI{
         return prevPath;
     }
 
-    /**
-     * Returns the current {@link RoomGUI#path}.
-     * @author Phuoc Le
-     * @return the current {@link RoomGUI#path}.
-     */
-    public String getPath() {
-        return path;
-    }
 }
