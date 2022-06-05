@@ -9,7 +9,11 @@ import java.io.File;
  *  @version 0.0.1
  */
 public class UserGUI extends GridTemplateGUI{
+    /**
+     * the string representation fo the current path
+     */
     private final String path;
+
     public UserGUI(String username) {
         super("User\\" + username + "\\");
         this.path = "User\\" + username + "\\";
