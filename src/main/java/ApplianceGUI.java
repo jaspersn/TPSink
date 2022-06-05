@@ -31,6 +31,14 @@ public class ApplianceGUI extends GridTemplateGUI{
         System.out.println(prevPath);
     }
 
+    /**
+     * returns the path of the newly created appliance folder
+     * @return path of new appliance folder
+     */
+    public String getPath() {
+        return path;
+    }
+
     @Override
     protected ActionListener getBackButtonActionListener() {
         return e -> {
@@ -49,7 +57,7 @@ public class ApplianceGUI extends GridTemplateGUI{
             if(f.exists()) {
                 try {
                     desktop.open(f);
-                } catch (IOException ex) {
+                } catch (IOException ignored) {
                 }
             }
         };

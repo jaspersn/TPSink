@@ -2,7 +2,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.io.File;
-import java.io.IOException;
 
 /**
  *  A class responsible creating a new User panel.
@@ -16,6 +15,15 @@ public class UserGUI extends GridTemplateGUI{
         this.path = "User\\" + username + "\\";
         setTitle(username); // Override title back to simple name
         initUser();
+    }
+
+    /**
+     * returns the path of the new user folder
+     * @author Xavier Hines
+     * @return the path of the new user folder
+     */
+    public String getPath() {
+        return path;
     }
 
     @Override
@@ -65,8 +73,13 @@ public class UserGUI extends GridTemplateGUI{
         };
     }
 
+    /**
+     * will make a new User directory if there isn't one with the existing
+     * username already
+     * @author Jasper Newkirk
+     */
     private void initUser() {
         File user = new File(path);
-        user.mkdir();
+        user.mkdirs();
     }
 }
