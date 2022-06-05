@@ -3,6 +3,9 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.FileSystems;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
 /**
  *  A class responsible creating a new User panel.
@@ -11,7 +14,7 @@ import java.io.IOException;
  */
 public class UserGUI extends GridTemplateGUI{
 
-    private final String path;
+    private String path;
     public UserGUI(String username) {
         super("User\\" + username + "\\");
         this.path = "User\\" + username + "\\";
@@ -44,6 +47,7 @@ public class UserGUI extends GridTemplateGUI{
     @Override
     protected ActionListener getAddButtonActionListener() {
         return e -> {
+            // Creates a series of JLabels and dialog boxes for creating a room
             JDialog newRoomDialog = new JDialog(this, "Create Room:");
             newRoomDialog.setLayout( new FlowLayout() );
             newRoomDialog.add( new JLabel ("Create a New Room:"));
@@ -53,31 +57,52 @@ public class UserGUI extends GridTemplateGUI{
             JTextField description = new JTextField("", 20);
             newRoomDialog.add(description);
             JButton okButton = new JButton ("Save");
+
+            // save the room name and description
             okButton.addActionListener(l -> {
                 // TODO: Test this
                 // TODO: add functionality for or delete the dimensions
                 new Room(roomName.getText(), path, description.getText());
                 newRoomDialog.dispose();
-                dispose();
- //               System.out.println(path.indexOf("\\"));
-                new UserGUI(path.substring(path.indexOf("\\") + 1).substring(0, path.substring(path.indexOf("\\") + 1).length() - 1));
+                refresh();
             });
             newRoomDialog.add(okButton);
             newRoomDialog.setSize(400,200);
             newRoomDialog.setVisible(true);
-            add(newRoomDialog);
+            try {
+                add(newRoomDialog);
+            } catch (IllegalArgumentException ignore){}
         };
     }
-
-    private void initUser() {
-        File user = new File(path);
-        user.mkdir();
+    @Override
+    protected void refresh() {
+        dispose();
+        new UserGUI(path.substring(path.indexOf("\\") + 1).substring(0, path.substring(path.indexOf("\\") + 1).length() - 1));
     }
 
+    /**
+     * Creates the {@code User} folder with a nested folder of the username if login successful.
+     * @author Jasper Newkirk
+     */
+    private void initUser() {
+        File user = new File(path);
+        try {
+            user.mkdirs();
+            Files.setAttribute(FileSystems.getDefault().getPath("User"), "dos:hidden", true);
+        } catch (IOException e) {
+            user = new File(path);
+            user.mkdirs();
+            path = "." + path;
+        }
+    }
+
+    /**
+     * Returns the current path of the {@code User} folder.
+     * @return the current path of the {@code User} folder.
+     * @author Phuoc Le
+     */
     public String getPath() {
         return path;
     }
-
-
 
 }
