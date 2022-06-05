@@ -46,6 +46,7 @@ public class MainGUI extends JFrame implements ActionListener  {
 
         JButton aboutButton = new JButton(About.getWindowName());
         JButton loginButton = new JButton("Login");
+        JButton enterSettings = new JButton("New User");
         JButton enterSettings = new JButton("User Info");
         aboutButton.setFont(font);
         loginButton.setFont(font);
@@ -59,7 +60,7 @@ public class MainGUI extends JFrame implements ActionListener  {
                 ex.printStackTrace();
             }
         });
-        enterSettings.addActionListener(e -> new InfoGUI());
+        enterSettings.addActionListener(e -> new NewUserGUI());
 
         buttonPanel.add(loginButton);
         buttonPanel.add(enterSettings);

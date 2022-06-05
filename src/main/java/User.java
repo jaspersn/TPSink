@@ -34,7 +34,10 @@ public class User {
 
 
 
-    private final ObjectMapper objMap = new ObjectMapper(new YAMLFactory().disable(YAMLGenerator.Feature.WRITE_DOC_START_MARKER));
+    private final ObjectMapper objMap = new ObjectMapper(
+                                        new YAMLFactory().disable(
+                                            YAMLGenerator.Feature.
+                                            WRITE_DOC_START_MARKER));
 
     /**
      * Default constructor
@@ -127,24 +130,27 @@ public class User {
     }
 
     /**
-     * will write information to userInfo yaml
+     * @author Jeremy Tirador
+     *
+     * will write information to new/existing yaml file
      * @param success Jlabel to modify text to inform user
      * @param n name
+     * @param pass password
      * @param e email
      * @throws IOException
      */
-    public void yamlWrite(JLabel success, String n, String e) throws IOException {
-        success.setText("Entered");
+    public void yamlWrite(JLabel success, String n, String pass, String e) throws IOException {
+        success.setText("Success!");
         User TDA = new User(
                 n,
-                password,
+                pass,
                 e
         );
-        objMap.writeValue(new File("src/main/DataFiles/UserInfo.yml"), TDA);
+        objMap.writeValue(new File("src/main/DataFiles/" + n + ".yml"), TDA);
     }
 
     /**
-     * takes a user object and writes to UserInfo with the information
+     * takes a user object and writes to new/existing file with the information
      * passed in the user object
      * @param u User object
      * @throws IOException
@@ -155,7 +161,7 @@ public class User {
                 u.password,
                 u.userEmail
         );
-        objMap.writeValue(new File("src/main/DataFiles/UserInfo.yml"), TDA);
+        objMap.writeValue(new File("src/main/DataFiles/" + u.userName +".yml"), TDA);
     }
 
     /**
