@@ -37,14 +37,6 @@ public class RoomGUI extends GridTemplateGUI{
         new RoomGUI(path.substring(path.indexOf("\\") + 1).substring(0, path.substring(path.indexOf("\\") + 1).length() - 1));
     }
 
-    /**
-     * returns the folder path of the newly created room
-     * @author Xavier Hines
-     * @return the folder path of the new room
-     */
-    public String getPath() {
-        return path;
-    }
 
     @Override
     protected ActionListener getBackButtonActionListener() {

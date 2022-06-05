@@ -49,7 +49,6 @@ public class MainGUI extends JFrame implements ActionListener  {
         JButton aboutButton = new JButton(About.getWindowName());
         JButton loginButton = new JButton("Login");
         JButton enterSettings = new JButton("New User");
-        JButton enterSettings = new JButton("User Info");
         aboutButton.setFont(font);
         loginButton.setFont(font);
         enterSettings.setFont(font);

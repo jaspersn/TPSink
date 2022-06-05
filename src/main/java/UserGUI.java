@@ -26,15 +26,6 @@ public class UserGUI extends GridTemplateGUI{
         initUser();
     }
 
-    /**
-     * returns the path of the new user folder
-     * @author Xavier Hines
-     * @return the path of the new user folder
-     */
-    public String getPath() {
-        return path;
-    }
-
     @Override
     protected ActionListener getBackButtonActionListener() {
         return e -> {
