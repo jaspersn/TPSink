@@ -11,7 +11,7 @@ public class UserInfoTest {
     /**
      * creates file from the test.yml file
      */
-    static File testFile = new File("src/main/DataFiles/Test.yml");
+    static File testFile = new File("DataFiles/Test.yml");
 
     /**
      * Test that the username is correct and readable from file
