@@ -156,7 +156,7 @@ public class User {
                 pass,
                 e
         );
-        objMap.writeValue(new File("src/main/DataFiles/" + n + "Info.yml"), TDA);
+        objMap.writeValue(new File("DataFiles/" + n + "Info.yml"), TDA);
     }
 
     /**
@@ -172,7 +172,7 @@ public class User {
                 u.password,
                 u.userEmail
         );
-        objMap.writeValue(new File("src/main/DataFiles/" + u.userName +".yml"), TDA);
+        objMap.writeValue(new File("DataFiles/" + u.userName +"Info.yml"), TDA);
     }
 
     /**
@@ -184,7 +184,7 @@ public class User {
     public void userImport() throws Exception {
         File file = null;
         JFileChooser fileChooser = new JFileChooser();
-        fileChooser.setCurrentDirectory(new File("src/main/DataFiles"));
+        fileChooser.setCurrentDirectory(new File("DataFiles"));
 
         int response = fileChooser.showSaveDialog(null);
 
@@ -205,7 +205,7 @@ public class User {
         File f = null;
         File newFile = new File("export.yml");
         JFileChooser fileChooser = new JFileChooser();
-        fileChooser.setCurrentDirectory(new File("src/main/DataFiles"));
+        fileChooser.setCurrentDirectory(new File("DataFiles"));
 
         int response = fileChooser.showOpenDialog(null);
 
