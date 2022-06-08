@@ -14,7 +14,7 @@ public class Login {
     /**
      * name of the window
      */
-    private String windowName;
+    private String windowName = "Login";
     /**
      * Where the username will be stored?
      */
@@ -23,6 +23,8 @@ public class Login {
      * where the user password will be stored?
      */
     private String password;
+
+    private String userEmail;
     /**
      * So that User information can be read from and written to .yml files
      */
@@ -81,6 +83,14 @@ public class Login {
      */
     public void setUserName(String userName) {
         this.userName = userName;
+    }
+
+    public String getUserEmail() {
+        return userEmail;
+    }
+
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
     }
 
     @Override
