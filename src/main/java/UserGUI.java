@@ -100,4 +100,7 @@ public class UserGUI extends GridTemplateGUI{
         }
     }
 
+    public String getPath() {
+        return path;
+    }
 }

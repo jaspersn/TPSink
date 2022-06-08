@@ -68,9 +68,10 @@ public class NewUserGUI extends JFrame {
         enterButton.addActionListener(e ->
             {
                 try {
-                    new User().yamlWrite(success, nameText.getText(),
+                    new User().yamlWrite(nameText.getText(),
                                          passwordText.getText(),
                                          emailText.getText());
+                    success.setText("Success!");
                 } catch (IOException ex) {
                     ex.printStackTrace();
                 }

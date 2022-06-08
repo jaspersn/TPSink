@@ -117,12 +117,13 @@ public class User {
     }
 
     /**
-     * will read UserInfo.yml
+     * will read a User's yml file
      * @author Xavier Hines
+     * @author Jeremy Tirador
      * @throws Exception
      */
-    public void yamlRead() throws Exception {
-        File ymlFile = new File("src/main/DataFiles/UserInfo.yml");
+    public void yamlRead(String n) throws Exception {
+        File ymlFile = new File("src/main/DataFiles/" + n + ".yml");
         User TDA = objMap.readValue(ymlFile, User.class);
         System.out.println(TDA);
     }
@@ -144,14 +145,12 @@ public class User {
      * @author Jeremy Tirador
      *
      * will write information to new/existing yaml file
-     * @param success Jlabel to modify text to inform user
      * @param n name
      * @param pass password
      * @param e email
      * @throws IOException
      */
-    public void yamlWrite(JLabel success, String n, String pass, String e) throws IOException {
-        success.setText("Success!");
+    public void yamlWrite(String n, String pass, String e) throws IOException {
         User TDA = new User(
                 n,
                 pass,
