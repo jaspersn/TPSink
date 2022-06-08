@@ -23,7 +23,7 @@ public class UserGUI extends GridTemplateGUI{
         super("User\\" + username + "\\");
         this.path = "User\\" + username + "\\";
         setTitle(username); // Override title back to simple name
-        initUser();
+        User.initUser(path);
     }
 
     @Override
@@ -82,22 +82,6 @@ public class UserGUI extends GridTemplateGUI{
     protected void refresh() {
         dispose();
         new UserGUI(path.substring(path.indexOf("\\") + 1).substring(0, path.substring(path.indexOf("\\") + 1).length() - 1));
-    }
-
-    /**
-     * Creates the {@code User} folder with a nested folder of the username if login successful.
-     * @author Jasper Newkirk
-     */
-    private void initUser() {
-        File user = new File(path);
-        try {
-            user.mkdirs();
-            Files.setAttribute(FileSystems.getDefault().getPath("User"), "dos:hidden", true);
-        } catch (IOException e) {
-            user = new File(path);
-            user.mkdirs();
-            path = "." + path;
-        }
     }
 
     public String getPath() {
