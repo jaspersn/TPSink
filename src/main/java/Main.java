@@ -1,6 +1,3 @@
-import java.awt.*;
-import java.io.File;
-
 /**
  * @author Xavier Hines
  * Date 5/12/22
@@ -10,14 +7,14 @@ public class Main {
     /**
      * Path for main window home Image
      */
-    private static final String PATH_TO_LOGO = "Assets/TPSink.png";
+    private static final String LOGO_URL = "https://i.imgur.com/px2zwdt.png";
 
     /**
      * main method, runs program
      * @author Xavier Hines
      * @param args
      */
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         //Room r = new Room();
         //r.yamlRead();
         //User us = new User();
@@ -40,8 +37,8 @@ public class Main {
      * @author Jasper Newkirk
      * @return main image path
      */
-    public static String getPathToLogo() {
-        return PATH_TO_LOGO;
+    public static String getLogoUrl() {
+        return LOGO_URL;
     }
 }
 

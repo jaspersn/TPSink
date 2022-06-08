@@ -2,6 +2,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 /**
  * @author Jasper Newkirk
@@ -11,11 +13,11 @@ import java.awt.event.ActionListener;
 public class MainGUI extends JFrame implements ActionListener  {
 
     /**
-     * Width of GUI window, based on {@link Main#getPathToLogo()} dimensions.
+     * Width of GUI window, based on {@link Main#getLogoUrl()} dimensions.
      */
     private static final int WIDTH = 684;
     /**
-     * Height of GUI window, based on {@link Main#getPathToLogo()} dimensions.
+     * Height of GUI window, based on {@link Main#getLogoUrl()} dimensions.
      */
     private static final int HEIGHT = 729;
     /**
@@ -30,7 +32,11 @@ public class MainGUI extends JFrame implements ActionListener  {
         @Override
         protected void paintComponent(Graphics g) {
             super.paintComponent(g);
-            g.drawImage(new ImageIcon(Main.getPathToLogo()).getImage(), 0, 0, null);
+            try {
+                g.drawImage(new ImageIcon(new URL(Main.getLogoUrl()), "Sink").getImage(), 0, 0, null);
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            }
         }
     };
 
