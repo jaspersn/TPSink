@@ -1,5 +1,8 @@
 import org.junit.jupiter.api.Test;
 import java.io.File;
+import java.io.IOException;
+import java.nio.file.Path;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
@@ -95,5 +98,30 @@ public class UserInfoTest {
         } else {
             assertTrue(true);
         }
+    }
+
+    /**
+     * Tests if user yml is created
+     * @author Jeremy Tirador
+     */
+    @Test
+    void testUserCreation() {
+        File userYML = null;
+        User user = null;
+        try {
+            new User().yamlWrite("Bob", "54321", "bob@gmail.com");
+            userYML = new File("src/main/DataFiles/BobInfo.yml");
+            user = new User().yamlReadFile(userYML);
+        } catch (IOException e) {
+            fail();
+        } catch (NullPointerException e) {
+            fail();
+        } catch (Exception e) {
+            fail();
+        }
+        assertTrue(userYML.exists());
+        assertEquals("\nname: Bob\npassword: 54321\nemail: bob@gmail.com",
+                     user.toString());
+        userYML.delete();
     }
 }

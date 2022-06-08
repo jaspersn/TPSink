@@ -96,4 +96,7 @@ public class RoomGUI extends GridTemplateGUI{
         return prevPath;
     }
 
+    public String getPath() {
+        return path;
+    }
 }
