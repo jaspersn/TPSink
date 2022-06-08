@@ -108,7 +108,7 @@ public class Login {
      */
     //TODO make a version that excepts file name/user name and gets info from that file
     public Login readLoginInfo(String name) throws Exception {
-        File ymlFile = new File("src/main/DataFiles/"+name + "Info.yml");
+        File ymlFile = new File("DataFiles/"+name + "Info.yml");
         Login getLogin = objMap.readValue(ymlFile, Login.class);
         System.out.println(getLogin);
         return getLogin;
