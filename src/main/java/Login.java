@@ -12,38 +12,25 @@ import java.io.File;
  */
 public class Login {
     /**
-     * name of the window
+     * The title associated with the {@link LoginGUI} window.
      */
     private String windowName = "Login";
     /**
-     * Where the username will be stored?
+     * The username associated with the {@link User}.
      */
     private String userName;
     /**
-     * where the user password will be stored?
+     * The password associated with the {@link User}.
      */
     private String password;
-
+    /**
+     * The email associated with the {@link User}.
+     */
     private String userEmail;
     /**
      * So that User information can be read from and written to .yml files
      */
     private final ObjectMapper objMap = new ObjectMapper(new YAMLFactory().disable(YAMLGenerator.Feature.WRITE_DOC_START_MARKER));
-
-    /**
-     * default constructor
-     * @author Xavier Hines
-     */
-    public Login() {
-    }
-
-    /**
-     * @author Xavier Hines
-     * @param windowName
-     */
-    public void setWindowName(String windowName) {
-        this.windowName = windowName;
-    }
 
     /**
      * @author Xavier Hines
@@ -123,10 +110,8 @@ public class Login {
      * @param pass String representing password
      */
     public void checkUserAndPassword(JLabel success, LoginGUI gui,String name, String pass) throws Exception {
-        // TODO: Upon successful Login dispose other windows
         Login loginInfo = readLoginInfo(name);
-        if (name.equals(loginInfo.userName) &&
-                pass.equals(loginInfo.password)) {
+        if (name.equals(loginInfo.userName) && pass.equals(loginInfo.password)) {
             success.setText("Login successful");
             gui.dispose();
             gui.getParentGUI().dispose();

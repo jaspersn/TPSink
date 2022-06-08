@@ -5,6 +5,7 @@ import java.io.File;
  * @version 1.0.0
  */
 public class GridTemplate {
+
     /**
      * Creates and returns the child paths and files in the given {@code dir} directory as a {@link File} array.
      * @author Jasper Newkirk
@@ -12,7 +13,7 @@ public class GridTemplate {
      * @return the child paths and files in the given {@code dir} directory as a {@link File} array or
      * {@code null} if the directory is empty.
      */
-    static File[] loadDir(String dir) {
+    protected static File[] loadDir(String dir) {
         File f = new File(dir);
         if (f.exists() && f.isDirectory()) return f.listFiles();
         return null;
@@ -23,7 +24,7 @@ public class GridTemplate {
      * @author Jasper Newkirk
      * @param path the {@code path} to be deleted.
      */
-    static void removeAll(String path) {
+    protected static void removeAll(String path) {
         File[] files = loadDir("User\\" + path);
         if (files != null) {
             for (File f : files) {

@@ -10,22 +10,31 @@ import java.nio.file.Path;
 /**
  *  A class responsible creating a new User panel.
  *  @author Jasper Newkirk
- *  @version 0.0.1
  */
 public class UserGUI extends GridTemplateGUI{
 
     /**
-     * the string representation fo the current path
+     * The string representation of the current path.
      */
     private String path;
 
+    /**
+     * Constructs a new {@link UserGUI} window with a grid of {@link JButton}'s denoting all directories in the current {@code path}.
+     * @param username The name of the {@link User}, to be assocaited with the parent directory.
+     * @throws HeadlessException when the environment does not support a keyboard, display, or mouse.
+     */
     public UserGUI(String username) {
         super("User\\" + username + "\\");
         this.path = "User\\" + username + "\\";
         setTitle(username); // Override title back to simple name
-        initUser();
+        User.initUser(path);
     }
 
+    /**
+     * Returns an {@link ActionListener} used to go back to the previous screen.
+     * @author Jasper Newkirk
+     * @return an {@link ActionListener} used to go back to the previous screen.
+     */
     @Override
     protected ActionListener getBackButtonActionListener() {
         return e -> {
@@ -38,16 +47,25 @@ public class UserGUI extends GridTemplateGUI{
         };
     }
 
+    /**
+     * Returns the {@link ActionListener} to be present in each directory-related button in this {@link UserGUI} window.
+     * @author Jasper Newkirk
+     * @param path the directory associated with the {@link JButton} button.
+     * @return the {@link ActionListener} to be present in each directory-related button in this {@link UserGUI} window.
+     */
     @Override
     protected ActionListener getButtonActionListener(String path) {
         return e -> {
             dispose();
-
-//            System.out.println(path + " before");
             new RoomGUI(path);
         };
     }
 
+    /**
+     * Returns the {@link ActionListener} to be executed upon pressing the "Add" button in this {@link UserGUI} window.
+     * @author Jasper Newkirk
+     * @return the {@link ActionListener} to be executed upon pressing the "Add" button in this {@link UserGUI} window.
+     */
     @Override
     protected ActionListener getAddButtonActionListener() {
         return e -> {
@@ -78,6 +96,11 @@ public class UserGUI extends GridTemplateGUI{
             } catch (IllegalArgumentException ignore){}
         };
     }
+
+    /**
+     * Refreshes and updates the current {@link UserGUI}.
+     * @author Jasper Newkirk
+     */
     @Override
     protected void refresh() {
         dispose();
@@ -85,21 +108,10 @@ public class UserGUI extends GridTemplateGUI{
     }
 
     /**
-     * Creates the {@code User} folder with a nested folder of the username if login successful.
+     * Returns the current directory.
      * @author Jasper Newkirk
+     * @return the current directory.
      */
-    private void initUser() {
-        File user = new File(path);
-        try {
-            user.mkdirs();
-            Files.setAttribute(FileSystems.getDefault().getPath("User"), "dos:hidden", true);
-        } catch (IOException e) {
-            user = new File(path);
-            user.mkdirs();
-            path = "." + path;
-        }
-    }
-
     public String getPath() {
         return path;
     }

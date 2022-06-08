@@ -5,6 +5,7 @@ import com.fasterxml.jackson.dataformat.yaml.YAMLGenerator;
 import javax.swing.*;
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.FileSystems;
 import java.nio.file.Files;
 
 /**
@@ -156,6 +157,7 @@ public class User {
                 pass,
                 e
         );
+        initUser("DataFiles");
         objMap.writeValue(new File("DataFiles/" + n + "Info.yml"), TDA);
     }
 
@@ -217,5 +219,21 @@ public class User {
         //TODO make so can choose where copy is sent
         //doesn't finish export until program closes
         Files.copy(f.toPath(), newFile.toPath());
+    }
+
+    /**
+     * Creates the {@code User} folder with a nested folder of the username if login successful.
+     * @author Jasper Newkirk
+     */
+    protected static void initUser(String path) {
+        File user = new File(path);
+        try {
+            user.mkdirs();
+            Files.setAttribute(FileSystems.getDefault().getPath(path.contains("\\") ? path.substring(0, path.indexOf("\\")) : path), "dos:hidden", true);
+        } catch (IOException e) {
+            user = new File(path);
+            user.mkdirs();
+            path = "." + path;
+        }
     }
 }

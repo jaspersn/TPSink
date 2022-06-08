@@ -13,11 +13,11 @@ import java.nio.file.SimpleFileVisitor;
 import java.nio.file.attribute.BasicFileAttributes;
 
 /**
- * An abstract class containing basic functionality for managing {@link Appliance} and {@link User} objects.
+ * An abstract class containing basic functionality for managing {@link Appliance}, {@link Note}, and {@link User} objects.
  * @author Jasper Newkirk
- * @version 1.0.0
  */
 public abstract class GridTemplateGUI extends JFrame {
+
     /**
      * The default width of the window.
      */
@@ -83,7 +83,7 @@ public abstract class GridTemplateGUI extends JFrame {
                 b.setFont(MainGUI.getPreferredFont());
                 String buttonPath = f.getPath().substring(f.getPath().indexOf("\\") + 1);
                 b.addActionListener(getButtonActionListener(buttonPath));
-                b.addMouseListener(getMouseAdapter(b, getPopupContextMenu(b, buttonPath)));
+                b.addMouseListener(getMouseAdapter(b, getPopupContextMenu(buttonPath)));
                 b.setPreferredSize(new Dimension(0, HEIGHT / 4));
                 buttonPanel.add(b);
             }
@@ -96,6 +96,13 @@ public abstract class GridTemplateGUI extends JFrame {
         return buttonPanel;
     }
 
+    /**
+     * Returns the {@link MouseAdapter} used to listen for right clicks within the {@link GridTemplateGUI} window.
+     * @author Jasper Newkirk
+     * @param parent the {@link JButton} to be associated to the given {@code menu} {@link JPopupMenu}.
+     * @param menu the {@link JPopupMenu} to be associated to the given {@code parent} {@link JButton}.
+     * @return the {@link MouseAdapter} used to listen for right clicks within the {@link GridTemplateGUI} window.
+     */
     private MouseAdapter getMouseAdapter(JButton parent, JPopupMenu menu) {
         return new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {
@@ -110,39 +117,51 @@ public abstract class GridTemplateGUI extends JFrame {
     /**
      * Returns the {@link JPopupMenu} associated with the {@code parent} {@link JButton}.
      * @author Jasper Newkirk
-     * @param parent the {@link JButton} to be assoiated with the {@link JPopupMenu}.
+     * @param path the path associated with the {@link JButton} for use in the {@link JPopupMenu}.
      * @return the {@link JPopupMenu} associated with the {@code parent} {@link JButton}.
      */
-    private JPopupMenu getPopupContextMenu(JButton parent, String path) {
+    private JPopupMenu getPopupContextMenu(String path) {
         JPopupMenu menu = new JPopupMenu("Menu");
 
         JMenuItem properties = new JMenuItem("Properties");
         JMenuItem delete = new JMenuItem("Delete");
-        delete.addActionListener(getDeleteButtonActionListener(parent, path));
+        delete.addActionListener(getDeleteButtonActionListener(path));
 
         menu.add(properties);
         menu.add(delete);
         return menu;
     }
 
-    private ActionListener getDeleteButtonActionListener(JButton parent, String path) {
+    /**
+     * Returns the {@link ActionListener} associated with the "delete" option in the context menu.
+     * @author Jasper Newkirk
+     * @param path  the path associated with the {@link JButton} for use in the {@link JPopupMenu}.
+     * @return the {@link ActionListener} associated with the "delete" option in the context menu.
+     */
+    private ActionListener getDeleteButtonActionListener(String path) {
         return (e) -> {
             GridTemplate.removeAll(path);
             refresh();
         };
     }
 
-    private ActionListener getPropertiesButtonActionListener(JButton parent) {
+    /**
+     * Returns the {@link ActionListener} associated with the "properties" option in the context menu.
+     * @author Jasper Newkirk
+     * @param path  the path associated with the {@link JButton} for use in the {@link JPopupMenu}.
+     * @return the {@link ActionListener} associated with the "properties" option in the context menu.
+     */
+    private ActionListener getPropertiesButtonActionListener(String path) {
         return (e) -> {
             //TODO: implement this correctly, grabbing from yml.
-            System.out.println("Properties of " + parent.getText());
+            System.out.println("Properties of " + path.substring(path.lastIndexOf("\\")));
         };
     }
 
     /**
-     * Returns a functional {@link JButton} within a {@link JPanel} used to go back to the previous screen.
+     * Returns an {@link ActionListener} used to go back to the previous screen.
      * @author Jasper Newkirk
-     * @return a functional {@link JButton} within a {@link JPanel} used to go back to the previous screen.
+     * @return an {@link ActionListener} used to go back to the previous screen.
      */
     protected abstract ActionListener getBackButtonActionListener();
 
