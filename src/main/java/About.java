@@ -21,7 +21,7 @@ public class About {
     /**
      * The current version number of the program.
      */
-    private static final String VERSION = "0.1.2";
+    private static final String VERSION = "1.4.0";
 
     /**
      * returns Version

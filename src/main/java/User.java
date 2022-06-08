@@ -157,7 +157,7 @@ public class User {
                 pass,
                 e
         );
-        objMap.writeValue(new File("src/main/DataFiles/" + n + ".yml"), TDA);
+        objMap.writeValue(new File("src/main/DataFiles/" + n + "Info.yml"), TDA);
     }
 
     /**
