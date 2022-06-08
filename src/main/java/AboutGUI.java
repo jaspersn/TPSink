@@ -4,15 +4,14 @@ import java.awt.*;
 /**
  * @author Jasper NewKirk
  * @author Xavier Hines
- * Date 5/9/22
+ * Creates a GUI displaying infromation found in the {@link About} class.
  */
 public class AboutGUI extends JFrame {
 
     /**
-     * Panel to set all the about information on
+     * The panel to set all the information from {@link About} onto.
      */
     private final JPanel panel = new JPanel(new BorderLayout());
-
 
     /**
      * Constructor that when called creates new about GUI containing

@@ -9,6 +9,8 @@ A TCSS 360 Team repo for Spring 2022
   - example:
     - ![](https://i.imgur.com/JqdA0QF.png)
 - Execute *run.bat* to run the application
+###Note
+Moving the location of the jar file may cause a loss of data previously input to the application.
 #Authors
 - Jasper Newkirk
 - Xavier Hines

@@ -1,13 +1,12 @@
 /**
- *  @author Jasper Newkirk
- *  Date 5/9/22
- *
- *  This class has all the info about the program itself!
- *  @version 0.1.0
+ * @author Jasper Newkirk
+ * @author Xavier Hines
+ * Stores information about the application.
  */
 public class About {
     /**
-     * creates new login object so that information from user can be accessed
+     * Instantiates a new {@link Login} object to access information from the user.
+     * @author Xavier Hines
      */
     private static Login L;
     static {
@@ -21,36 +20,40 @@ public class About {
     /**
      * The current version number of the program.
      */
-    private static final String VERSION = "1.4.0";
+    private static final String VERSION = "1.5.1";
 
     /**
-     * returns Version
-     * @return Version
+     * Returns the version ({@link About#VERSION}) associated with this build of the application.
+     * @author Jasper Newkirk
+     * @return the version ({@link About#VERSION}) associated with this build of the application.
      */
     public static String getVersion() {
         return VERSION;
     }
 
     /**
-     * The group name.
+     * The name of the group responsible for this application.
      */
     private static final String GROUP_NAME = "TPSink";
 
     /**
-     * @return GROUP_NAME
+     * Returns the name of the group responsible for this application ({@link About#GROUP_NAME}).
+     * @author Jasper Newkirk
+     * @return the name of the group responsible for this application ({@link About#GROUP_NAME}).
      */
     public static String getGroupName() {
         return GROUP_NAME;
     }
 
     /**
-     * An array of about info headings
+     * An array of information headings.
      */
-    //TODO need to fix to call username a different way
     private static final String[] HEADINGS = {"This app is registered to: " + L.getUserName() + "This app is provided by: " + GROUP_NAME};
 
     /**
-     * @return HEADINGS
+     * Returns the {@link About#HEADINGS} array to be associated with the {@link AboutGUI} window.
+     * @author Jasper Newkirk
+     * @return the {@link About#HEADINGS} array to be associated with the {@link AboutGUI} window.
      */
     public static String[] getHeadings() {
         return HEADINGS;
@@ -62,19 +65,23 @@ public class About {
     private static final String[] MEMBERS = {"Xavier Hines", "Jasper Newkirk", "Jeremy Tirador", " Phuoc Le"};
 
     /**
-     * @return GET_MEMBERS
+     * Returns the {@link About#MEMBERS} array to be associated with the {@link AboutGUI} window.
+     * @author Jasper Newkirk
+     * @return the {@link About#MEMBERS} array to be associated with the {@link AboutGUI} window.
      */
     public static String[] getMembers() {
         return MEMBERS;
     }
 
     /**
-     * Stores Windows name
+     * The name of the Window.
      */
     private static final String WINDOW_NAME = "About";
 
     /**
-     * @return WINDOW_NAME
+     * Returns the intended name ({@link About#WINDOW_NAME}) to be associated with the {@link AboutGUI} window.
+     * @author Jasper Newkirk
+     * @return the intended name ({@link About#WINDOW_NAME}) to be associated with the {@link AboutGUI} window.
      */
     public static String getWindowName() {
         return WINDOW_NAME;

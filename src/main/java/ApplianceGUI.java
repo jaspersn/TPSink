@@ -7,9 +7,10 @@ import java.io.IOException;
 /**
  * A class containing basic functionality for managing {@link Appliance} objects in a {@link Appliance}.
  *  @author Jasper Newkirk
- *  @version 1.0.0
+ * @author Phuoc Le
  */
 public class ApplianceGUI extends GridTemplateGUI{
+
     /**
      * The path the room containing this {@link Appliance}.
      */
@@ -18,6 +19,7 @@ public class ApplianceGUI extends GridTemplateGUI{
      * The current path to this {@link Appliance}.
      */
     private final String path;
+
     /**
      * Constructs a new {@link ApplianceGUI} window with a grid of {@link JButton}'s denoting all directories in the current {@code path}.
      * @param path The parent directory.
@@ -30,12 +32,21 @@ public class ApplianceGUI extends GridTemplateGUI{
         this.prevPath = path.substring(0, path.lastIndexOf("\\"));
     }
 
+    /**
+     * Refreshes and updates the current {@link ApplianceGUI}.
+     * @author Jasper Newkirk
+     */
     @Override
     protected void refresh() {
         dispose();
         new ApplianceGUI(path.substring(path.indexOf("\\") + 1).substring(0, path.substring(path.indexOf("\\") + 1).length() - 1));
     }
 
+    /**
+     * Returns an {@link ActionListener} used to go back to the previous screen.
+     * @author Jasper Newkirk
+     * @return an {@link ActionListener} used to go back to the previous screen.
+     */
     @Override
     protected ActionListener getBackButtonActionListener() {
         return e -> {
@@ -44,11 +55,22 @@ public class ApplianceGUI extends GridTemplateGUI{
         };
     }
 
+    /**
+     * Returns the {@link ActionListener} to be present in each directory-related button in this {@link ApplianceGUI} window.
+     * @author Jasper Newkirk
+     * @param path the directory associated with the {@link JButton} button.
+     * @return the {@link ActionListener} to be present in each directory-related button in this {@link ApplianceGUI} window.
+     */
     @Override
     protected ActionListener getButtonActionListener(String path) {
         return e -> Note.open(path);
     }
 
+    /**
+     * Returns the {@link ActionListener} to be executed upon pressing the "Add" button in this {@link ApplianceGUI} window.
+     * @author Jasper Newkirk
+     * @return the {@link ActionListener} to be executed upon pressing the "Add" button in this {@link ApplianceGUI} window.
+     */
     @Override
     protected ActionListener getAddButtonActionListener() {
         return e -> {
@@ -74,10 +96,21 @@ public class ApplianceGUI extends GridTemplateGUI{
             } catch (IllegalArgumentException ignore){}
         };
     }
+
+    /**
+     * Returns the previous path relative to the current {@link ApplianceGUI#path}.
+     * @author Phuoc Le
+     * @return the previous path relative to the current {@link ApplianceGUI#path}.
+     */
     public String getPrevPath() {
         return prevPath;
     }
 
+    /**
+     * Returns the current directory.
+     * @author Phuoc Le
+     * @return the current directory.
+     */
     public String getPath() {
         return path;
     }
